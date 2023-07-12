@@ -59,8 +59,8 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
-   for ( var i = 0 ; i < array.length ; i ++);
-   if (array[i] == elemento)return true;
+   
+   if (array.includes(elemento))return true;
    else return false;
 }
 
@@ -68,18 +68,31 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
+   var suma = 0;
+   for ( var i = 0; i < arrayOfNums.length; i ++){
+      suma = suma + arrayOfNums[i];
+   }
+   
+   return suma;
+
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
+   var promedio = 0;
+   for ( var i = 0 ; i < resultadosTest.length ; i ++){
+      promedio = promedio + resultadosTest[i];
+   }
+   return promedio/resultadosTest.length;
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
+   return Math.max(...arrayOfNums);
 }
 
 function multiplicarArgumentos() {
@@ -87,11 +100,25 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
+   if (arguments.length === 0){
+      return 0;
+   }
+   var multipicada = 1;
+   for ( var i = 0 ; i < arguments.length ; i ++){
+      multipicada = multipicada * arguments[i]
+   }
+   return multipicada;
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+   var Mayor18 = 0 ;
+   for ( var i = 0; i < array.length; i ++){
+      if (array[i]> 18){
+         Mayor18++
+      }
+   }return Mayor18;
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -99,18 +126,26 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   if ( numeroDeDia === 1 || numeroDeDia === 7)return "Es fin de semana";
+   else return "Es dia laboral"
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   while (num >= 10){
+      num /=10;
+   }
+   return Math.trunc(num)=== 9;
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   var aux = array[0]
+   return array.every(elem => elem === aux);
 }
 
 function mesesDelAño(array) {
@@ -118,18 +153,35 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-}
+   let aux = ["Enero","Marzo" , "Noviembre"];
+   let arr = [];
+   array.forEach(elem => {
+      if (aux.includes(elem)){
+         arr.push(elem);
+      }
+   })
+   if ( arr.length === 3)return arr;
+   return "No se encontraron los meses pedidos";
 
+}
+   
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   let aux = [];
+   for ( var i = 0 ; i <= 10 ; i ++  ){
+      aux.push ( i * 6);
+
+   }
+   return aux;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   return array.filter(elem => elem > 100);
 }
 
 /* ----------------------------------------------------------------------------------
