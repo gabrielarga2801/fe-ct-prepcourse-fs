@@ -16,7 +16,7 @@ const {
    multiplica,
    obtenerResto,
 } = require('../Ejercicio 02');
-///git ad strena
+///git ad strenabhuvcjh
 const {
    tienenMismaLongitud,
    sonIguales,
